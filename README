@@ -1,3 +1,12 @@
 == isoelectric_point_4_R
 
 A ruby class for calculating the isoelectric point of a protein
+
+
+a = Isoelectric_point.new("dtaselect","KK")
+
+#calculate the charge at ph 14
+ c = a.calculate_charge_at(14)
+
+#7 is a round off number to improve precision
+myph = a.calculate_isoelectric_point(7)
