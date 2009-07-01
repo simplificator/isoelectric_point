@@ -65,8 +65,20 @@ class Isoelectric_point
                      "Y" => 10.0
                      }
        #TODO add the patrikios pka values,
-       #TODO Add a method to allow a user to predefine their own hash of pka values
+#       patrikios_pks ={"N_terminus" => ,
+#                     "K" => ,
+#                     "R" => ,
+#                     "H" => ,
+#                     "C_terminus" => ,
+#                     "D" => ,
+#                     "E" => ,
+#                     "C" => ,
+#                     "Y" => 
+#                     }
+       #TODO Add a method to allow a user to define their own hash of pka values
+
         @pka_set = pka_set
+        
         case
             when
                 @pka_set =~/^emboss$/i
