@@ -10,7 +10,7 @@
 
  #extend the float class to round off
  class Float
-   #round off to the nearesr places
+   #round off to the nearest decimal places
    def roundf(places)
      temp = self.to_s.length
      sprintf("%#{temp}.#{places}f",self).to_f

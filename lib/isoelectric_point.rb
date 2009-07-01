@@ -187,8 +187,8 @@ end #isoelectric_point
 
 #examples
 #a = Isoelectric_point.new("dtaselect","KK")
-
+#
 # c = a.calculate_charge_at(14)
-
-#7 is a round off number to improve precision
+#
+##7 is a round off number to improve precision
 #myph = a.calculate_isoelectric_point(7)
