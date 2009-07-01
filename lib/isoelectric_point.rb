@@ -1,6 +1,6 @@
 require 'extensions'
 
-#calculates the isolectric point of a given protein sequence
+#calculates the isoelectric point of a given protein sequence
 class Isoelectric_point
 
     def initialize(pka_set,sequence)
@@ -100,7 +100,7 @@ class Isoelectric_point
         end #case
 
         if sequence == " "
-          raise "Provide sequence"
+          raise "provide a sequence"
         else
          @sequence = sequence
         end
@@ -197,10 +197,10 @@ class Isoelectric_point
 
 end #isoelectric_point 
 
-#examples
-#a = Isoelectric_point.new("dtaselect","KK")
+#example
+#isoelectric_calc = Isoelectric_point.new("dtaselect","KKGFTCGELA")
 #
-# c = a.calculate_charge_at(14)
+# charge_at_ph_14 = isoelectric_calc.calculate_charge_at(14)
 #
-##7 is a round off number to improve precision
-#myph = a.calculate_isoelectric_point(7)
+#calculate the ph and round off to 7 decimal places
+#myp = isoelectric_calc.calculate_isoelectric_point(7)
