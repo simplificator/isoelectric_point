@@ -14,7 +14,7 @@ class Isoelectric_point
       @charged_groups = %w{K R H D E C Y}
 
       #hash of residues at DTA_select pk values
-      dta_select_pks = {"N_terminus" => 8.0,
+      dta_select_pkas = {"N_terminus" => 8.0,
                      "K" => 10.0,
                      "R" => 12.0,
                      "H" => 6.5,
@@ -24,7 +24,7 @@ class Isoelectric_point
                      "C" => 8.5,
                      "Y" => 10.0
                      }
-      emboss_pks = {"N_terminus" => 8.6,
+      emboss_pkas = {"N_terminus" => 8.6,
                      "K" => 10.8,
                      "R" => 12.5,
                      "H" => 6.5,
@@ -34,7 +34,7 @@ class Isoelectric_point
                      "C" => 8.5,
                      "Y" => 10.1
                      }
-       rodwell_pks = {"N_terminus" => 8.0,
+       rodwell_pkas = {"N_terminus" => 8.0,
                          "K" => 11.5,
                          "R" => 11.5,
                          "H" => 6.0,
@@ -44,7 +44,7 @@ class Isoelectric_point
                          "C" => 8.33,
                          "Y" => 10.07
                          }
-       wikipedia_pks = {"N_terminus" => 8.2,
+       wikipedia_pkas = {"N_terminus" => 8.2,
                      "K" => 10.54,
                      "R" => 12.48,
                      "H" => 6.04,
@@ -54,7 +54,7 @@ class Isoelectric_point
                      "C" => 8.18,
                      "Y" => 10.47
                      }
-      sillero_pks = {"N_terminus" => 8.2,
+      sillero_pkas = {"N_terminus" => 8.2,
                      "K" => 10.4,
                      "R" => 12.0,
                      "H" => 6.4,
@@ -82,21 +82,21 @@ class Isoelectric_point
         case
             when
                 @pka_set =~/^emboss$/i
-                @pka_set = emboss_pks
+                @pka_set = emboss_pkas
             when
                 @pka_set=~/^dtaselect$/i
-                @pka_set = dta_select_pks
+                @pka_set = dta_select_pkas
             when
                 @pka_set =~/^rodwell$/i
-                @pka_set = rodwell_pks
+                @pka_set = rodwell_pkas
            when
                 @pka_set =~/^wikipedia$/i
-                @pka_set = wikipedia_pks
+                @pka_set = wikipedia_pkas
            when
                 @pka_set =~/^sillero$/i
-                @pka_set = sillero_pks
+                @pka_set = sillero_pkas
            else
-              raise "Pka not defined"
+              raise "pka not defined"
         end #case
 
         if sequence == " "
