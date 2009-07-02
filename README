@@ -2,11 +2,20 @@
 
 A ruby class for calculating the isoelectric point of a protein
 
+example
+#takes two initialization arguments; a pkas set and an amino acid string
+#The available pka sets are:
+ #       dta_select_pkas
+ #       emboss_pkas
+ #       rodwell_pkas
+   #     wikipedia_pkas
+    #    sillero_pkas
 
-a = Isoelectric_point.new("dtaselect","KK")
+#initialize a pka clculator object with dtaselect pkas and the KKGFTCGELA as an amino acid sequence
+isoelectric_calc = Isoelectric_point.new("dtaselect","KKGFTCGELA")
 
-#calculate the charge at ph 14
- c = a.calculate_charge_at(14)
+#what is the protein charge at ph 14?
+charge_at_ph_14 = isoelectric_calc.calculate_charge_at(14)
 
-#7 is a round off number to improve precision
-myph = a.calculate_isoelectric_point(7)
+#calculate the ph and round off to 7 decimal places to increase precision
+my_ph = isoelectric_calc.calculate_isoelectric_point(7)
