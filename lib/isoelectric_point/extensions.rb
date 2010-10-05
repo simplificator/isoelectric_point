@@ -1,9 +1,9 @@
 class Array
-  def count
+  def frequency
     k = Hash.new(0)
     self.each{|x| k[x] += 1 }
     k
-  end #count
+  end #frequency
 end #array
 
 

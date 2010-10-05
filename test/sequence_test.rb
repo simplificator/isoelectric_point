@@ -1,20 +1,14 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
+require 'test_helper'
+include IsoelectricPoint
+class SequenceTest < Test::Unit::TestCase
 
-$:.unshift File.join(File.dirname(__FILE__),'..','lib')
-
-require 'test/unit'
-require 'isoelectric_point'
-require 'shoulda'
-
-class IsoelectricTest < Test::Unit::TestCase
-  context "When using the isoelectric_point class" do
-    setup {@isp_factory = Isoelectric_point.new("dtaselect","PGAKAAAKKPKKAAG")}
+  context "When using the Sequence class" do
+    setup {@isp_factory = Sequence.new("dtaselect","PGAKAAAKKPKKAAG")}
 
     should "Return an error if no sequence is given" do
-      assert_raise Exception do Isoelectric_point.new("emboss","")end
+      assert_raise ArgumentError do Sequence.new("emboss","")end
     end
-    
+
     should "Count the number of given residues" do
       assert_equal 2, @isp_factory.count_residue("KK", "K")
     end
