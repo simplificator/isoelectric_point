@@ -1,19 +1,16 @@
-
- class Array
-   def count
-    k=Hash.new(0)
-    self.each{|x| k[x]+=1 }
+class Array
+  def count
+    k = Hash.new(0)
+    self.each{|x| k[x] += 1 }
     k
   end #count
- end #array
+end #array
 
 
- #extend the float class to round off
- class Float
-   #round off to the nearest decimal places
-   def roundf(places)
-     temp = self.to_s.length
-     sprintf("%#{temp}.#{places}f",self).to_f
-   end
- end
+class Float
+  #round off to the nearest decimal places
+  def roundf(places)
+    sprintf("%#{self.to_s.length}.#{places}f", self).to_f
+  end
+end
 
