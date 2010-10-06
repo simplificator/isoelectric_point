@@ -1,4 +1,6 @@
-== Sequence_4_R
+== isoelectric_point
+
+NOT YET READY. DO NOT USE THIS CODE.
 
 A ruby class for calculating the isoelectric point of a protein
 
@@ -16,10 +18,10 @@ The available pka sets are:
  # Either prefix or include namespace
  include IsoelectricPoint
  #initialize a pka clculator object with dtaselect pkas and the KKGFTCGELA as an amino acid sequence
- sequence = Sequence.new("dtaselect","KKGFTCGELA")
+ sequence = Sequence.new("KKGFTCGELA")
 
  #what is the protein charge at ph 14?
  charge_at_ph_14 = sequence.calculate_charge_at(14)
 
  #calculate the ph and round off to 7 decimal places to increase precision
- ph = sequence.calculate_isoelectric_point(7)
+ ph = sequence.calculate_iep(7)

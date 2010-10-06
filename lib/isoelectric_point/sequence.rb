@@ -37,7 +37,6 @@ module IsoelectricPoint
       ph.round_to_places(places)
     end
 
-    private
 
     def calculate_charge_at(ph, places = 5)
       charge = partial_charge(pks['N_TERMINUS'], ph) +
@@ -51,6 +50,8 @@ module IsoelectricPoint
 
       charge.round_to_places(places)
     end
+
+    private
 
     def charged_residue_frequencies
       @charged_residue_count ||= calculate_charged_residue_frequencies
