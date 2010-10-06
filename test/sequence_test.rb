@@ -2,32 +2,49 @@ require 'test_helper'
 include IsoelectricPoint
 class SequenceTest < Test::Unit::TestCase
 
-  context "When using the Sequence class" do
-    setup {@isp_factory = Sequence.new("dtaselect","PGAKAAAKKPKKAAG")}
+  context 'some known sequences' do
+    setup do
+      @known = {
+        'D' => 3.81
+      }
+    end
+    should 'calculate' do
+      fail "This does not work...., loops forever. or at least very long"
+      @known.each do |sequence, ph|
+        assert_equal ph, Sequence.new(sequence).calculate_iep(5)
+      end
+    end
+  end
 
-    should "Return an error if no sequence is given" do
-      assert_raise ArgumentError do Sequence.new("emboss","")end
+  should "Raise if not sequence given" do
+    assert_raise ArgumentError do
+      Sequence.new(nil)
+    end
+  end
+
+  should "Raise if empty sequence given" do
+    assert_raise ArgumentError do
+      Sequence.new(' ')
+    end
+  end
+
+
+  should "Raise if unknown pks used" do
+    assert_raise ArgumentError do
+      Sequence.new('PG', 'youdontknowme')
+    end
+  end
+
+  context "a Sequence" do
+    setup do
+      @sequence = Sequence.new("PGAKAAAKKPKKAAG")
     end
 
-    should "Count the number of given residues" do
-      assert_equal 2, @isp_factory.count_residue("KK", "K")
+    should "calculates the isolectric point to 0 places" do
+      assert_equal 11, @sequence.calculate_iep(0)
     end
-
-    should "Count the number of charged groups in the protein" do
-      assert_equal 5, @isp_factory.count_charged_residues
+    should "calculates the isolectric pointto 3 places" do
+      assert_equal 10.603, @sequence.calculate_iep(3)
     end
-
-    context "charge ratio" do
-        should "return partial charge given a ph,pk and state which can be pos(+) or neg(-)" do
-          assert_equal 0.5, @isp_factory.charge_ratio(7.0,7.0,"pos")
-        end
-    end
-
-#     should "Calculate charge of a sequence at a given ph"do
-#       assert_in_delta 0.9090, @isp_factory.calculate_charge_at(7.0)
-#     end
-     should "calculates the isolectric point when given a round off value" do
-       assert_equal 10.6089, @isp_factory.calculate_isoelectric_point(10)
-     end
   end
 end
