@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{isoelectric_point}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ['GeorgeR', "pascalbetz"]
@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "lib/isoelectric_point.rb",
+     "lib/isoelectric_point/data.rb",
      "lib/isoelectric_point/extensions.rb",
      "lib/isoelectric_point/sequence.rb",
   ]
@@ -26,7 +27,10 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Calculate isoelectric point. Based on code frmo GeorgeR. We just took it and made a gem of it.}
   s.test_files = [
-    "test/sequence_test.rb"
+    "test/sequence_test.rb",
+    "test/extensions_test.rb",
+    "test/test_helper.rb"
+
   ]
 
   if s.respond_to? :specification_version then
