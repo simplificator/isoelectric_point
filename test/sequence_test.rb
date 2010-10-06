@@ -9,9 +9,9 @@ class SequenceTest < Test::Unit::TestCase
       }
     end
     should 'calculate' do
-      fail "This does not work...., loops forever. or at least very long"
+      #fail "This does not work...., loops forever. or at least very long"
       @known.each do |sequence, ph|
-        assert_equal ph, Sequence.new(sequence).calculate_iep(5)
+        assert_equal ph, Sequence.new(sequence).calculate_iep(2)
       end
     end
   end
