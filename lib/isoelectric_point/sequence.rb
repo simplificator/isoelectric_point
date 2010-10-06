@@ -17,7 +17,7 @@ module IsoelectricPoint
     end
 
     def calculate_iep(places = 2)
-      precission = 5
+      precission = 15
       ph = 7.5
       step = 3.5
       target_charge = 0.0
@@ -29,25 +29,20 @@ module IsoelectricPoint
           ph -= step
         end
         step /= 2.0
-        puts "#{self.value}: %.10f / #{step} / #{ph}" % current_charge
+        #puts "#{self.value}: %.10f / %.10f / %.10f : direction was #{current_charge > 0 ? '+' : '-'}" % [current_charge, step, ph]
         #sleep 0.1
-
       end while current_charge == nil || target_charge.round_to_places(precission) != current_charge.round_to_places(precission)
       ph.round_to_places(places)
     end
 
 
     def calculate_charge_at(ph)
-      charge = partial_charge(pks['N_TERMINUS'], ph) +
-      KEYS_PLUS.inject(0) do |memo, item|
+      KEYS_PLUS.inject(partial_charge(pks['N_TERMINUS'], ph)) do |memo, item|
         memo += partial_charge(self.pks[item], ph) * charged_residue_frequencies[item]
       end -
-      KEYS_MINUS.inject(0) do |memo, item|
+      KEYS_MINUS.inject(partial_charge(ph, pks['C_TERMINUS'])) do |memo, item|
         memo += partial_charge(ph, self.pks[item]) * charged_residue_frequencies[item]
-      end -
-      partial_charge(ph, pks['C_TERMINUS'])
-
-      charge
+      end
     end
 
     private
