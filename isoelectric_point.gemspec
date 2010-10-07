@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{isoelectric_point}
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ['GeorgeG', "pascalbetz"]
-  s.date = %q{2010-10-05}
+  s.date = %q{2010-10-07}
   s.description = %q{Calculate the Isoelectric point}
   s.email = %q{info@simplificator.com}
   s.extra_rdoc_files = [
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "lib/isoelectric_point.rb",
-     "lib/isoelectric_point/data.rb",
+     "lib/isoelectric_point/pka_data.rb",
      "lib/isoelectric_point/extensions.rb",
      "lib/isoelectric_point/aa.rb",
   ]
