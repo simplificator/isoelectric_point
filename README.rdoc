@@ -1,26 +1,39 @@
-== isoelectric_point
-A ruby class for calculating the isoelectric point of a protein. It's based on bioperl and the library from GeorgeG.
+= isoelectric_point
+A ruby class for calculating the isoelectric point of a protein. It's based on bioperl.
+It's currently beeing refactored to fit into bioruby.
 
-= PKA Sets
+== PKA Sets
 The available pka sets are:
-* dta_select_pkas
-* emboss_pkas
-* rodwell_pkas
-* wikipedia_pkas
-* sillero_pkas
+* dta_select
+* emboss
+* rodwell
+* wikipedia
+* sillero
 
-= Installation
+== Installation
  gem install isoelectric_point
 
-= Usage
+== Usage
  require 'isoelectric_point'
  # Either prefix or include namespace
- include IsoelectricPoint
- #initialize a pka clculator object with dtaselect pkas and the KKGFTCGELA as an amino acid sequence
- sequence = Sequence.new("KKGFTCGELA")
+ include Bio::Sequence
+ aa = AA.new("KKGFTCGELA")
 
  #what is the protein charge at ph 14?
- charge = sequence.calculate_charge_at(14)
+ charge = aa.calculate_charge_at(14)
 
  #calculate the ph and round off to 7 decimal places
- ph = sequence.calculate_iep(7)
+ ph = aa.calculate_iep(7)
+
+ # calculate the ph with a custom set
+ custom = { "N_TERMINUS" => 8.1,
+            "K" => 10.1,
+            "R" => 12.1,
+            "H" => 6.4,
+            "C_TERMINUS" => 3.15,
+            "D" => 4.34,
+            "E" => 4.33,
+            "C" => 8.33,
+            "Y" => 9.5
+          }
+ ph = aa.calculate_iep(7, custom)
