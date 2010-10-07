@@ -22,8 +22,8 @@ The available pka sets are:
  #what is the protein charge at ph 14?
  charge = aa.calculate_charge_at(14)
 
- #calculate the ph and round off to 7 decimal places
- ph = aa.calculate_iep(7)
+ #calculate the ph using dtaselect and round off to 3 decimal places
+ ph = aa.calculate_iep('dtaselect', 3)
 
  # calculate the ph with a custom set
  custom = { "N_TERMINUS" => 8.1,
@@ -36,4 +36,4 @@ The available pka sets are:
             "C" => 8.33,
             "Y" => 9.5
           }
- ph = aa.calculate_iep(7, custom)
+ ph = aa.calculate_iep(custom, 3)
